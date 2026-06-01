@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DAFTAR ROMBEL MURID 2026/2027</title>
+<title>Daftar Rombel</title>
 
 <style>
 
@@ -34,8 +34,6 @@ body{
     padding:20px;
 }
 
-/* ===== HEADER ===== */
-
 .header-box{
     width:70%;
     max-width:900px;
@@ -59,8 +57,6 @@ body{
     margin-top:10px;
 }
 
-/* ===== LAYOUT ===== */
-
 .content-wrapper{
     display:grid;
     grid-template-columns:1fr 1fr 1fr;
@@ -74,8 +70,6 @@ body{
     padding:18px;
 }
 
-/* ===== SECTION TITLE ===== */
-
 .section-title{
     color:#ffffff;
     border-bottom:1px solid #30363d;
@@ -84,8 +78,6 @@ body{
     font-size:22px;
     font-weight:bold;
 }
-
-/* ===== KELAS ===== */
 
 .menu-link{
     display:block;
@@ -99,18 +91,11 @@ body{
 
     color:#58a6ff;
     text-decoration:none;
-    font-size:17px;
-
-    transition:0.2s;
 }
 
 .menu-link:hover{
     background:#30363d;
-    color:#79c0ff;
-    transform:translateX(3px);
 }
-
-/* ===== WA ===== */
 
 .wa-link{
     display:block;
@@ -124,36 +109,25 @@ body{
 
     color:white;
     text-decoration:none;
-    font-size:17px;
-
-    transition:0.2s;
 }
 
 .wa-link:hover{
     background:#198754;
 }
 
-/* ===== INFO ===== */
-
 .info-list{
-    padding-left:22px;
-    margin:0;
+    padding-left:20px;
 }
 
 .info-list li{
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
-
-/* ===== FOOTER ===== */
 
 footer{
     margin-top:30px;
     text-align:center;
     color:#8b949e;
-    font-size:14px;
 }
-
-/* ===== MOBILE ===== */
 
 @media (max-width:900px){
 
@@ -163,7 +137,6 @@ footer{
 
     .header-box{
         width:100%;
-        padding:0 10px 20px 10px;
     }
 
     .main-title{
@@ -182,25 +155,17 @@ footer{
 <body>
 
 <div class="container">
-
 <div class="repo-box">
 
     <div class="header-box">
 
-        <div class="main-title">
-            DAFTAR ROMBEL / KELAS MURID
-        </div>
+        <div class="main-title" id="main-title"></div>
 
-        <div class="sub-title">
-            SD ISLAM CIKAL HARAPAN II<br>
-            TAHUN AJARAN 2026/2027
-        </div>
+        <div class="sub-title" id="sub-title"></div>
 
     </div>
 
     <div class="content-wrapper">
-
-        <!-- INFORMASI -->
 
         <div class="column-box">
 
@@ -208,12 +173,9 @@ footer{
                 📢 INFORMASI PENTING
             </div>
 
-            <ol class="info-list" id="info-container">
-            </ol>
+            <ol class="info-list" id="info-container"></ol>
 
         </div>
-
-        <!-- DAFTAR KELAS -->
 
         <div class="column-box">
 
@@ -224,8 +186,6 @@ footer{
             <div id="kelas-container"></div>
 
         </div>
-
-        <!-- WHATSAPP -->
 
         <div class="column-box">
 
@@ -239,22 +199,36 @@ footer{
 
     </div>
 
-    <footer>
-        © 2026 Kimi Rifky Alfiansyah
-    </footer>
+    <footer id="footer-text"></footer>
 
 </div>
-
 </div>
 
 <script>
 
-/* =========================
-   LOAD INFORMASI
-========================= */
+/* HEADER */
+
+fetch('header.json')
+.then(r => r.json())
+.then(data => {
+
+    document.getElementById('main-title')
+        .textContent = data.judul;
+
+    document.getElementById('sub-title')
+        .innerHTML =
+            data.subjudul + "<br>" + data.tahun;
+
+    document.getElementById('footer-text')
+        .textContent = data.footer;
+
+});
+
+
+/* INFO */
 
 fetch('info.json')
-.then(response => response.json())
+.then(r => r.json())
 .then(data => {
 
     const container =
@@ -271,16 +245,13 @@ fetch('info.json')
 
     });
 
-})
-.catch(error => console.error(error));
+});
 
 
-/* =========================
-   LOAD KELAS
-========================= */
+/* KELAS */
 
 fetch('kelas.json')
-.then(response => response.json())
+.then(r => r.json())
 .then(data => {
 
     const container =
@@ -300,16 +271,13 @@ fetch('kelas.json')
 
     });
 
-})
-.catch(error => console.error(error));
+});
 
 
-/* =========================
-   LOAD WA
-========================= */
+/* WA */
 
 fetch('wa.json')
-.then(response => response.json())
+.then(r => r.json())
 .then(data => {
 
     const container =
@@ -329,8 +297,7 @@ fetch('wa.json')
 
     });
 
-})
-.catch(error => console.error(error));
+});
 
 </script>
 
