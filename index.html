@@ -114,6 +114,19 @@ body{
 .wa-link:hover{
     background:#198754;
 }
+/* CARD KELAS */
+
+.class-card{
+    margin-bottom:18px;
+    padding:12px;
+    background:#161b22;
+    border:1px solid #30363d;
+    border-radius:8px;
+}
+
+.class-card:last-child{
+    margin-bottom:0;
+}
 
 .info-list{
     padding-left:20px;
@@ -176,25 +189,21 @@ footer{
             <ol class="info-list" id="info-container"></ol>
 
         </div>
-
         <div class="column-box">
-
             <div class="section-title">
-                📚 DAFTAR KELAS
+            📚 KELAS 1 - 3
             </div>
-
-            <div id="kelas-container"></div>
+            <div id="kelas13-container"></div>
+        </div>
 
         </div>
 
         <div class="column-box">
 
             <div class="section-title">
-                💬 GRUP WHATSAPP
+                📚 KELAS 4 - 6
             </div>
-
-            <div id="wa-container"></div>
-
+            <div id="kelas46-container"></div>
         </div>
 
     </div>
@@ -248,57 +257,59 @@ fetch('info.json')
 });
 
 
-/* KELAS */
+Promise.all([
+    fetch('kelas.json').then(r => r.json()),
+    fetch('wa.json').then(r => r.json())
+])
+.then(([kelasData, waData]) => {
 
-fetch('kelas.json')
-.then(r => r.json())
-.then(data => {
+    const kelas13 =
+        document.getElementById('kelas13-container');
 
-    const container =
-        document.getElementById('kelas-container');
+    const kelas46 =
+        document.getElementById('kelas46-container');
 
-    data.forEach(item => {
+    kelasData.forEach((kelas, index) => {
 
-        const link =
+        const card =
+            document.createElement('div');
+
+        card.className = 'class-card';
+
+        const kelasLink =
             document.createElement('a');
 
-        link.className = 'menu-link';
-        link.href = item.url;
-        link.target = '_blank';
-        link.textContent = item.nama;
+        kelasLink.className = 'menu-link';
+        kelasLink.href = kelas.url;
+        kelasLink.target = '_blank';
+        kelasLink.textContent = kelas.nama;
 
-        container.appendChild(link);
+        const waLink =
+            document.createElement('a');
+
+        waLink.className = 'wa-link';
+        waLink.href = waData[index].url;
+        waLink.target = '_blank';
+        waLink.textContent =
+            '💬 Gabung Grup WA';
+
+        card.appendChild(kelasLink);
+        card.appendChild(waLink);
+
+        const nomorKelas =
+            parseInt(
+                kelas.nama.match(/\d+/)[0]
+            );
+
+        if(nomorKelas <= 3){
+            kelas13.appendChild(card);
+        }else{
+            kelas46.appendChild(card);
+        }
 
     });
 
 });
-
-
-/* WA */
-
-fetch('wa.json')
-.then(r => r.json())
-.then(data => {
-
-    const container =
-        document.getElementById('wa-container');
-
-    data.forEach(item => {
-
-        const link =
-            document.createElement('a');
-
-        link.className = 'wa-link';
-        link.href = item.url;
-        link.target = '_blank';
-        link.textContent = item.nama;
-
-        container.appendChild(link);
-
-    });
-
-});
-
 </script>
 
 </body>
