@@ -15,8 +15,8 @@
 body{
     margin:0;
     padding:15px;
-    background:#1f161e; /* Gelap dengan sentuhan warna ungu/pink tua */
-    color:#f0e6ed;
+    background:#0d1117;
+    color:#c9d1d9;
     font-family:Arial, Helvetica, sans-serif;
     line-height:1.5;
 }
@@ -28,8 +28,8 @@ body{
 }
 
 .repo-box{
-    background:#2d1f2b; /* Box bertema pink gelap */
-    border:1px solid #4a3246;
+    background:#161b22;
+    border:1px solid #30363d;
     border-radius:12px;
     padding:20px;
 }
@@ -39,11 +39,12 @@ body{
     max-width:900px;
     margin:0 auto 35px auto;
     padding:0 20px 25px 20px;
-    border-bottom:1px solid #4a3246;
+    border-bottom:1px solid #30363d;
 }
 
 .main-title{
-    color:#ff79c6; /* Judul utama berwarna pink cerah */
+    /* color:#58a6ff; */
+    color:#000000;
     text-align:center;
     font-size:32px;
     font-weight:bold;
@@ -51,7 +52,7 @@ body{
 }
 
 .sub-title{
-    color:#fcd0ec;
+    color:#f0f6fc;
     text-align:center;
     font-size:22px;
     margin-top:10px;
@@ -65,8 +66,8 @@ body{
 }
 
 .column-box{
-    background:#382635;
-    border:1px solid #4a3246;
+    background:#21262d;
+    border:1px solid #30363d;
     border-radius:10px;
     padding:18px;
     height: fit-content;
@@ -74,7 +75,7 @@ body{
 
 .section-title{
     color:#ffffff;
-    border-bottom:1px solid #4a3246;
+    border-bottom:1px solid #30363d;
     padding-bottom:10px;
     margin-bottom:18px;
     font-size:22px;
@@ -83,8 +84,8 @@ body{
 
 /* CONTAINER PER TINGKAT KELAS DI KOLOM 2 DAN 3 */
 .grade-box {
-    background:#2d1f2b;
-    border:1px solid #4a3246;
+    background:#161b22;
+    border:1px solid #30363d;
     border-radius:10px;
     padding:15px;
     margin-bottom:16px;
@@ -94,47 +95,47 @@ body{
     margin-bottom: 0;
 }
 
-/* JUDUL TINGKAT KELAS */
+/* JUDUL TINGKAT KELAS (TEKS BIASA, BUKAN HIPERLINK) */
 .grade-title {
-    color: #ff79c6; /* Pink khas */
+    color: #58a6ff;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 12px;
-    border-bottom: 1px dashed #4a3246;
+    border-bottom: 1px dashed #30363d;
     padding-bottom: 6px;
 }
 
-/* TOMBOL DATA SISWA (WARNA PINK SOFT BER-BORDER) */
+/* TOMBOL DATA SISWA (BORDER SAMA SEPERTI WA, TAPI WARNA BIRU) */
 .drive-link{
     display:block;
     width:100%;
     padding:12px 16px;
     margin-bottom: 12px;
 
-    background:#382635;
-    border:1px solid #ff79c6;
+    background:#21262d;
+    border:1px solid #2f81f7;
     border-radius:8px;
 
-    color:#ffb8e4;
+    color:#58a6ff;
     text-decoration:none;
     text-align:left;
     font-weight: bold;
 }
 
 .drive-link:hover{
-    background:#ff79c6;
-    color:#1f161e;
+    background:#2f81f7;
+    color:white;
 }
 
-/* TOMBOL WA GRUP (WARNA PINK MAWAR/ROSE) */
+/* TOMBOL WA GRUP (WARNA GREEN/HIJAU) */
 .wa-link{
     display:block;
     width:100%;
     padding:12px 16px;
     margin-bottom: 8px;
 
-    background:#382635;
-    border:1px solid #ff55bb;
+    background:#21262d;
+    border:1px solid #198754;
     border-radius:8px;
 
     color:white;
@@ -143,8 +144,7 @@ body{
 }
 
 .wa-link:hover{
-    background:#ff55bb;
-    color:white;
+    background:#198754;
 }
 
 .wa-link:last-child {
@@ -162,7 +162,7 @@ body{
 footer{
     margin-top:30px;
     text-align:center;
-    color:#b392ac;
+    color:#8b949e;
 }
 
 @media (max-width:900px){
@@ -269,7 +269,7 @@ Promise.all([
         };
     });
 
-    // 1. Memetakan URL Drive siswa dari datasiswa.json
+    // 1. Memetakan URL Drive siswa dari datasiswa.json (eks-kelas.json)
     siswaData.forEach(siswa => {
         const matchKelas = siswa.nama.match(/\d+/);
         if (matchKelas) {
@@ -301,13 +301,13 @@ Promise.all([
         const gradeBox = document.createElement('div');
         gradeBox.className = 'grade-box';
 
-        // Bagian A: Membuat Judul Tingkat Kelas
+        // Bagian A: Membuat Judul Tingkat Kelas (Teks Biasa dari kelas.json baru)
         const gradeTitle = document.createElement('div');
         gradeTitle.className = 'grade-title';
         gradeTitle.textContent = infoKelas.namaJudul;
         gradeBox.appendChild(gradeTitle);
 
-        // Bagian B: Membuat Tombol "Data Siswa" (Border Pink Soft)
+        // Bagian B: Membuat Tombol "Data Siswa" (Hiperlink Biru dari datasiswa.json)
         const driveLink = document.createElement('a');
         driveLink.className = 'drive-link';
         driveLink.href = infoKelas.linkDrive ? infoKelas.linkDrive : "https://drive.google.com";
@@ -315,7 +315,7 @@ Promise.all([
         driveLink.textContent = "📁 Data Siswa";
         gradeBox.appendChild(driveLink);
 
-        // Bagian C: Membuat Jajaran Tombol Grup WA (Border Pink Mawar)
+        // Bagian C: Membuat Jajaran Tombol Grup WA (dari wa.json)
         infoKelas.listWa.forEach(wa => {
             const waLink = document.createElement('a');
             waLink.className = 'wa-link';

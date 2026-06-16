@@ -1,82 +1,8 @@
 [
-  {
-    "nama":"KELAS 1A",
-    "url":"https://chat.whatsapp.com/BnzFFAz7IAq0qW4CtixF3m"
-  },
-  {
-    "nama":"KELAS 1B",
-    "url":"https://chat.whatsapp.com/F2BJnhY6uqcE8DrG7DIGPb"
-  },
-  {
-    "nama":"KELAS 1C",
-    "url":"https://chat.whatsapp.com/GIOWM0CWLZpJgu9hlg7ArH"
-  },
-  {
-    "nama":"KELAS 1D",
-    "url":"https://chat.whatsapp.com/HAo0ken7HLz0KujOCfJN4D"
-  },
-  {
-    "nama":"KELAS 2A",
-    "url":"https://chat.whatsapp.com/GpPDit4J7am89TUPbbKomQ"
-  },
-  {
-    "nama":"KELAS 2B",
-    "url":"https://chat.whatsapp.com/GpPDit4J7am89TUPbbKomQ"
-  },
-  {
-    "nama":"KELAS 2C",
-    "url":"https://chat.whatsapp.com/LcSjMkSouD5JDzlkXLPAg4"
-  },
-  {
-    "nama":"KELAS 2D",
-    "url":"https://chat.whatsapp.com/KinmMHGcucl0eWX7t5dvQ2"
-  },
-  {
-    "nama":"KELAS 3A",
-    "url":"https://chat.whatsapp.com/F9qXhGrtanlArOo1n20bYt"
-  },
-  {
-    "nama":"KELAS 3B",
-    "url":"https://chat.whatsapp.com/CyJQNTvBgqsAPL6PnYhfd5"
-  },
-  {
-    "nama":"KELAS 3C",
-    "url":"https://chat.whatsapp.com/Dl31mFtHaBGG1IkGBX2bxK"
-  },
-  {
-    "nama":"KELAS 4A",
-    "url":"https://chat.whatsapp.com/L3pygFbgh5lJPgSd1GRezR"
-  },
-  {
-    "nama":"KELAS 4B",
-    "url":"https://chat.whatsapp.com/HBiTLm2b0lbHpVqaEdrCOS"
-  },
-  {
-    "nama":"KELAS 4C",
-    "url":"https://chat.whatsapp.com/HKBwchocogEHIp85Mz4GrB"
-  },
-  {
-    "nama":"KELAS 5A",
-    "url":"https://chat.whatsapp.com/BvMWcf5gN6D5gMyCRo86Ae"
-  },
-  {
-    "nama":"KELAS 5B",
-    "url":"https://chat.whatsapp.com/IC6zYldhaBC01GhuAAmpyP"
-  },
-  {
-    "nama":"KELAS 5C",
-    "url":"https://chat.whatsapp.com/KGYhScg20K5LPJS3XKEie8"
-  },
-  {
-    "nama":"KELAS 6A",
-    "url":"https://chat.whatsapp.com/Dx90ZNwmbLp2WZ1AcQZEVN"
-  },
-  {
-    "nama":"KELAS 6B",
-    "url":"https://chat.whatsapp.com/Dx90ZNwmbLp2WZ1AcQZEVN"
-  },
-  {
-    "nama":"KELAS 6C",
-    "url":"https://chat.whatsapp.com/DmUkSLSiIsVKiBaqcEFnUL"
-  }
+  { "tingkat": 1, "nama": "Kelas 1" },
+  { "tingkat": 2, "nama": "Kelas 2" },
+  { "tingkat": 3, "nama": "Kelas 3" },
+  { "tingkat": 4, "nama": "Kelas 4" },
+  { "tingkat": 5, "nama": "Kelas 5" },
+  { "tingkat": 6, "nama": "Kelas 6" }
 ]
